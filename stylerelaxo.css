@@ -138,7 +138,7 @@ body {
    grid-area: image;
    width: 30vh;
    height:100%;
-   background-image: url("images/relaxo_sitting.webp");
+   background-image: url("relaxo_sitting.webp");
    background-size: cover;
    transition: all;
    opacity: 1;
@@ -150,21 +150,21 @@ body {
 }
 
 #image.sleep {
-   background-image: url("images/relaxo_sleeping.webp");
+   background-image: url("relaxo_sleeping.webp");
    background-size: cover;
    opacity: 0;
    transition: opacity 1s ease-in-out;
 }
 
 #image.eat {
-   background-image: url("images/relaxo_eating.webp");
+   background-image: url("relaxo_eating.webp");
    background-size: cover;
    opacity: 0;
    transition: opacity 1s ease-in-out;
 }
 
 #image.study {
-   background-image: url("images/relaxo_working.webp");
+   background-image: url("relaxo_working.webp");
    background-size: cover;
    opacity: 0;
    transition: opacity 1s ease-in-out;
@@ -172,7 +172,7 @@ body {
 
 
 #image.fight {
-   background-image: url("images/relaxo_fighting.webp");
+   background-image: url("relaxo_fighting.webp");
    background-size: cover;
    opacity: 0;
    transition: opacity 1s ease-in-out;
