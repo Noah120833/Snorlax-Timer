@@ -1,0 +1,697 @@
+body {
+   overflow: hidden;
+   justify-items: center;
+   align-items: center;
+   margin: 0;
+   padding-top: 100px;
+   height: 100vh; /* Stellt sicher, dass der Körper die ganze Höhe einnimmt */
+   background: linear-gradient(45deg, #2c2c2c, #ebebeb); /* Anfangs Farbverlauf */
+   background-size: 400% 400%; /* Macht den Farbverlauf größer, damit er sich bewegt */
+   animation: gradientAnimation 15s ease infinite; /* Animation für den Farbverlauf */
+}
+
+/* Definiert die Animation des Farbverlaufs */
+@keyframes gradientAnimation {
+   0% {
+       background-position: 0% 50%;
+   }
+   25% {
+       background-position: 50% 50%;
+   }
+   50% {
+       background-position: 100% 50%;
+   }
+   75% {
+       background-position: 50% 50%;
+   }
+   100% {
+       background-position: 0% 50%;
+   }
+}
+
+
+
+#boostContainer {
+   position: absolute;
+   width: 100px;
+   height: 100px;
+   pointer-events: none;
+}
+
+.particle {
+   position: absolute;
+   width: 30px;
+   height: 30px;
+   background-color: rgb(255, 238, 0);
+   border-radius: 50%;
+   opacity: 0.9;
+   animation: boost 1s ease-out forwards;
+}
+
+@keyframes boost {
+   0% {
+       transform: translate(0, 0) scale(1);
+       opacity: 1;
+   }
+   100% {
+       transform: translate(var(--x), var(--y)) scale(0);
+       opacity: 0;
+   }
+}
+
+
+/* Glow-Animationen für Level 5, 10 und 20 */
+@keyframes glow5 {
+   0% { box-shadow: 0 0 10px orange; }
+   50% { box-shadow: 0 0 20px orange; }
+   100% { box-shadow: 0 0 10px orange; }
+}
+
+@keyframes glow10 {
+   0% { box-shadow: 0 0 10px red; }
+   50% { box-shadow: 0 0 20px red; }
+   100% { box-shadow: 0 0 10px red; }
+}
+
+@keyframes glow20 {
+   0% { box-shadow: 0 0 10px violet; }
+   50% { box-shadow: 0 0 20px violet; }
+   100% { box-shadow: 0 0 10px violet; }
+}
+
+/* Hinzufügen der Glow-Klassen */
+.glow5 {
+   animation: glow5 1.5s infinite alternate;
+}
+
+.glow10 {
+   animation: glow10 1.5s infinite alternate;
+}
+
+.glow20 {
+   animation: glow20 1.5s infinite alternate;
+}
+
+
+
+
+#relaxocontainer {
+   opacity: 1;
+   padding:10px;
+   gap:20px;
+   display:grid;
+   grid-template-columns: 0.7fr 0.5fr 1fr;
+   grid-template-rows: 0.1fr 0.2fr 0.2fr 1fr 4fr;
+   grid-template-areas:
+   "space1 heading heading"
+   "bar1 image image"
+   "bar2 image image"
+   "bar3 image image"
+   "card card card";
+   border-radius: 20px;
+   margin: 0 auto;
+   width:50vh;
+   height:80vh;
+   align-self: center;
+   justify-self: center;
+   justify-items: center;
+   align-items: center;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   transform: rotateY(0deg);
+   transition: transform 0.5s ease-in-out;
+}
+
+#relaxocontainer.rotating {
+   transform: rotateY(360deg);
+}
+
+#heading {
+   grid-area: heading;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   color:white;
+   justify-self: center;
+
+}
+
+#image {
+   justify-self: left;
+   grid-area: image;
+   width: 30vh;
+   height:100%;
+   background-image: url("images/relaxo_sitting.webp");
+   background-size: cover;
+   transition: all;
+   opacity: 1;
+   transition: opacity 2s ease;
+   border-radius: 20px;
+   overflow: hidden;
+   box-shadow: inset 0 0 0 5px rgba(0, 0, 0, 0.2);
+ 
+}
+
+#image.sleep {
+   background-image: url("images/relaxo_sleeping.webp");
+   background-size: cover;
+   opacity: 0;
+   transition: opacity 1s ease-in-out;
+}
+
+#image.eat {
+   background-image: url("images/relaxo_eating.webp");
+   background-size: cover;
+   opacity: 0;
+   transition: opacity 1s ease-in-out;
+}
+
+#image.study {
+   background-image: url("images/relaxo_working.webp");
+   background-size: cover;
+   opacity: 0;
+   transition: opacity 1s ease-in-out;
+}
+
+
+#image.fight {
+   background-image: url("images/relaxo_fighting.webp");
+   background-size: cover;
+   opacity: 0;
+   transition: opacity 1s ease-in-out;
+}
+
+#image.visible {
+   opacity: 1;
+}
+
+#image.lvlup {
+   transition-duration: 1s;
+   transition-timing-function: ease-in-out;
+   animation: glowup 1.5s ease-in-out;
+}
+
+@keyframes glowup {
+   0% { opacity: 1; transform: scale(1); }
+   15% { opacity: 0.6; transform: scale(1.05); }
+   25% { opacity: 1; transform: scale(1); }
+   50% { opacity: 0.5; transform: scale(1.10); }
+   60% { opacity: 1; transform: scale(1); }
+   75% { opacity: 0.5; transform: scale(1.10); }
+   90% { opacity: 0.8; transform: scale(1); }
+   100% { opacity: 1; transform: scale(1.10); }
+}
+
+#image:hover {
+   transform: scale(1.05);
+   transition: transform 0.3s ease-in-out;
+}
+
+
+
+#card {
+   grid-area: card;
+   padding:12px;
+   display: grid;
+   grid-template-columns: 0.3fr 1fr 0.3fr;
+   grid-template-rows: 0.4fr 0.5fr 1fr 1fr;
+   grid-template-areas:
+   "lvl name space1"
+   "bar bar bar"
+   "buttons buttons buttons"
+   "space2 stats settings";
+   border-radius: 20px;
+   height:90%;
+   width: 90%;
+   background-color: rgb(255, 255, 255);
+   transition: all;
+   transition-duration: 0.3s;
+   transition-timing-function: ease-in-out;
+}
+
+#card:hover {
+   transform: scale(1.03);
+}
+
+#name {
+   justify-self: center;
+   font-weight: 600;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 5vh;
+   grid-area: name;
+   color:black;
+}
+
+#lvl {
+   font-size: 3vh;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   align-self:center ;
+   justify-self: right;
+   grid-area: lvl;
+   color:black;
+}
+
+
+
+
+
+#bar {
+   justify-self: center;
+   border-radius: 20px;
+   grid-area: bar;
+   background-color: rgb(235, 235, 235);
+   max-width: 30vh;
+   width:100%;
+   height:1.5vh;
+   padding:3px;
+}
+
+#bar1 {
+   display:grid;
+   overflow: hidden;
+   grid-area: bar1;
+   justify-self: center;
+   border-radius: 20px;
+   background-color: rgb(235, 235, 235);
+   max-width: 30vh;
+   width:90%;
+   height:1.7vh;
+   padding:0px;
+   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+
+#bar2 {
+   grid-area: bar2;
+   justify-self: center;
+   border-radius: 20px;
+   background-color: rgb(235, 235, 235);
+   max-width: 30vh;
+   width:90%;
+   height:1.7vh;
+   padding:0px;
+   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+#bar3 {
+   align-self: baseline;
+   grid-area: bar3;
+   justify-self: center;
+   border-radius: 20px;
+   background-color: rgb(235, 235, 235);
+   max-width: 30vh;
+   width:90%;
+   height:1.7vh;
+   padding:0px;
+   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+
+
+
+#loadingbar {
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   width:0%;
+   height:100%;
+   border-radius: 20px;
+   transition: width 0.3s ease-in-out; /* Sanfte Animation der Breite */
+}
+
+/* Animation für den Ladebalken */
+@keyframes progressAnimation {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+   background-position: 20px 0;
+  }
+  100% {
+    background-position: 40px 0;
+  }
+}
+
+#healthbar {
+   color: white;
+   max-width: 100%;
+   font-weight: 500;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: smaller;
+   line-height: 1.7vh;
+   text-align: center;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   width:100%;
+   height:100%;
+   border-radius: 20px;
+   transition: width 0.3s ease-in-out; /* Sanfte Animation der Breite */
+}
+
+#healthbar::after {
+   content: attr(data-text);
+   color:rgb(255, 255, 255);
+}
+
+
+#feedbar {
+   color: white;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: smaller;
+   line-height: 1.7vh;
+   font-weight: 500;
+   text-align: center;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   width:100%;
+   height:100%;
+   max-width: 100%;
+   border-radius: 20px;
+   transition: width 0.3s ease-in-out; /* Sanfte Animation der Breite */
+}
+
+#feedbar::after {
+   content: attr(data-text);
+   color:rgb(255, 255, 255);
+}
+
+
+#sleepbar {
+   color: white;
+   max-width: 100%;
+   font-weight: 500;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: smaller;
+   line-height: 1.7vh;
+   text-align: center;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   width:100%;
+   height:100%;
+   border-radius: 20px;
+   transition: width 0.3s ease-in-out; /* Sanfte Animation der Breite */
+}
+
+#sleepbar::after {
+   content: attr(data-text);
+   color:rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
+#buttons {
+   text-align: center;
+   grid-area: buttons;
+   background-color: transparent;
+   display: grid;
+   gap:30px;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 1fr;
+   grid-template-areas:
+   "button1 button2"
+   "button3 button4";
+
+}
+
+#icon1, #icon2, #icon3, #icon4 {
+justify-self: left;
+align-self: center;
+background-color: white;
+height:5vh;
+width:5vh;
+border-radius: 50%;
+background-color: rgb(255, 255, 255);
+background-size: contain;
+background-position: center;
+}
+
+#icon1{
+   grid-area: icon1;
+   background-image: url(https://static.thenounproject.com/png/481378-200.png);
+}
+
+
+#icon2{
+   grid-area: icon2;
+   background-image: url(https://www.svgrepo.com/show/116172/fight.svg);
+}
+
+#icon3{
+   grid-area: icon3;
+   background-image: url(https://cdn-icons-png.flaticon.com/512/566/566985.png);
+}
+
+#icon4{
+   grid-area: icon4;
+   background-image: url(https://png.pngtree.com/png-clipart/20230417/original/pngtree-sleep-line-icon-png-image_9063660.png);
+}
+
+#button1, #button2, #button3, #button4 {
+   height:5vh;
+   display: grid;
+   text-align: center;
+   padding:2px;
+   color:white;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 3.8vh;
+   width:90%;
+   margin: 0 auto;
+   padding:2px;
+   transition: all;
+   transition-duration: 0.3s;
+   transition-timing-function: ease-in-out;
+   cursor: pointer;
+  
+
+
+}
+
+#button1 {
+   display: grid;
+   grid-template-columns: 0.1fr 1fr;
+   grid-template-rows: 1fr;
+   grid-template-areas:
+   "icon1 text";
+   grid-area: button1;
+   border-radius: 30px;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+
+   
+}
+
+
+
+
+#button1:hover {
+   background: linear-gradient(to right,#0583fa,#143292);
+   transform: scale(1.05);
+}
+
+#button2 {
+   display: grid;
+   grid-template-columns: 0.1fr 1fr;
+   grid-template-rows: 1fr;
+   grid-template-areas:
+   "icon2 text";
+   grid-area: button2;
+   border-radius: 30px;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   opacity: 1;
+}
+
+
+
+#button2:hover {
+   background: linear-gradient(to right,#0583fa,#143292);
+   transform: scale(1.05);
+}
+
+#button3 {
+   display: grid;
+   grid-template-columns: 0.1fr 1fr;
+   grid-template-rows: 1fr;
+   grid-template-areas:
+   "icon3 text";
+   grid-area: button3;
+   border-radius: 30px;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   opacity: 1;
+}
+
+#button3:hover {
+   background: linear-gradient(to right,#0583fa,#143292);
+   transform: scale(1.05);
+}
+
+#button4 {
+   display: grid;
+   grid-template-columns: 0.1fr 1fr;
+   grid-template-rows: 1fr;
+   grid-template-areas:
+   "icon4 text";
+   grid-area: button4;
+   border-radius: 30px;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+   opacity: 1;
+
+}
+
+#button4:hover {
+   background: linear-gradient(to right,#0583fa,#143292);
+   transform: scale(1.05);
+}
+
+
+#stats {
+   font-size: 2.4vh;
+   font-weight:bold;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   text-align: center;
+   border-radius: 20px;
+   grid-area: stats;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr;
+   grid-template-areas:
+   "status mode";
+   background-color: transparent;
+   width:100%;
+   height:3vh;
+   overflow: hidden;
+   align-self: end;
+
+}
+
+#status {
+grid-area: status;
+color:rgb(71, 71, 71);
+background-color: rgb(204, 204, 204);
+cursor: pointer;
+transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#modeui {
+   border-radius: 10px;
+   position: absolute;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 3vh;
+   width:43vh;
+   height:26vh;
+   background-color: rgb(255, 255, 255);
+   justify-self: center;
+   align-self: center;
+   align-items: center;
+   justify-items: center;
+   margin: 0 auto;
+   z-index: 1;
+   display: none;
+   padding:3px;
+   grid-template-columns: 2fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr 1fr;
+   grid-template-areas: 
+   "a e"
+   "b f"
+   "c g"
+   "d h";
+   transition: all;
+   transition-duration: 0.5s;
+   transition-timing-function: ease-in-out;
+
+  
+}
+
+#a,#b,#c,#d,#e,#f,#g,#h{
+   display: flex;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-size: 2.4vh;
+   align-self: center;
+   justify-self: center;
+   justify-items: center;
+   align-items: center;
+   padding:2px;
+   height:5vh;
+   width:100%;
+   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+   background-color: rgb(255, 255, 255);
+  
+   
+}
+
+#a {
+   border-top-left-radius: 8px;
+   border-bottom-left-radius: 8px;
+   grid-area: a;
+}
+#b {
+   border-top-left-radius: 8px;
+   border-bottom-left-radius: 8px;
+   grid-area: b;
+}
+#c {
+   border-top-left-radius: 8px;
+   border-bottom-left-radius: 8px;
+   grid-area: c;
+}
+#d {
+   border-top-left-radius: 8px;
+   border-bottom-left-radius: 8px;
+   grid-area: d;
+}
+#e {
+   display: grid;
+   border-top-right-radius: 8px;
+   border-bottom-right-radius: 8px;
+   font-size: 3vh;
+   text-align: center;
+   grid-area: e;
+}
+#f {
+   display: grid;
+   border-top-right-radius: 8px;
+   border-bottom-right-radius: 8px;
+   font-size: 3vh;
+   text-align: center;
+   grid-area: f;
+}
+#g {
+   display: grid;
+   border-top-right-radius: 8px;
+   border-bottom-right-radius: 8px;
+   font-size: 3vh;
+   text-align: center;
+   grid-area: g;
+}
+#h {
+   display: grid;
+   border-top-right-radius: 8px;
+   border-bottom-right-radius: 8px;
+   font-size: 3vh;
+   text-align: center;
+   grid-area: h;
+}
+
+#mode {
+grid-area: mode;
+color:rgb(202, 203, 204);
+background-color: rgb(61, 61, 61);
+cursor: pointer;
+transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+#settings {
+   border-radius: 20px;
+   justify-self: end;
+   align-self: flex-end;
+   grid-area: settings;
+   height:5vh;
+   width:5vh;
+   background: url(https://cdn4.iconfinder.com/data/icons/essential-set-2-line/32/icon_Menu_option_preference_setting_more-512.png);
+   background-position: center;
+   background-size: cover;
+   transition: all;
+   transition-duration: 0.3s;
+   transition-timing-function: ease-in-out;
+}
+
+#settings:hover {
+   transform: scale(1.10);
+}
+
+

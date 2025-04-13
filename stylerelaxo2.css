@@ -1,0 +1,287 @@
+html {
+   background-color:rgb(81, 113, 184);
+   padding-left:100px;
+   padding-right:100px;
+}
+
+body {
+   z-index: 1;
+   align-self: center;
+   border-radius: 20px;
+   justify-self: center;
+   margin:20px;
+   background-color:rgb(243, 243, 243);
+   display:grid;
+   grid-template-columns: 1fr 1fr;
+   grid-template-rows: 1fr 2fr;
+   width:90%;
+   height:100%;
+   gap: 20px;
+   grid-template-areas:
+   "pagetitle help"
+   "logincontainer logincontainer";
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.blurred *:not(#loginform):not(#loginform *) {
+   filter: blur(4px);
+ }
+
+#logincontainer {
+   display: grid;
+grid-area: logincontainer;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 0.5fr 1fr;
+gap:20px;
+grid-template-areas:
+"heading infoimg"
+"submitb infoimg";
+}
+
+@keyframes gradientAnimation {
+   0% { background-position: 0% 50%; }
+   100% { background-position: 100% 50%; }
+}
+
+#heading {
+   text-align: center;
+   align-self: self-end;
+   justify-self: center;
+   grid-area: heading;
+   font-size: 7vh;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: 900;
+
+   background: linear-gradient(to right,#05a3ff,#2746aa);; 
+   background-size: 200% 200%; 
+   -webkit-background-clip: text; 
+   -webkit-text-fill-color: transparent; 
+   
+   animation: gradientAnimation 3s infinite alternate; 
+}
+
+
+#loginform {
+   padding:20px;
+   gap:10px;
+   display: none;
+   grid-template-rows: 1fr 0.5fr 0.5fr 1fr;
+   grid-template-columns: 1fr;
+   grid-template-areas:
+   "head"
+   "username"
+   "password"
+   "continue";
+   justify-self: center;
+   align-self: center;
+   border-radius: 20px;
+   width:50vh;
+   height:60vh;
+   position: fixed;
+   z-index: 10;
+   background-color: white;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+
+#head {
+   font-weight: 600;
+   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-size: 5vh;
+   align-self: center;
+   justify-self: center;
+grid-area: head;
+}
+
+#username {
+   color: #585858;
+   border-radius: 10px;
+   align-self:center;
+   justify-self: center;
+   width:35vh;
+   height:5vh;
+   background-color:#f3f3f3;
+   border: none;
+   grid-area:username;
+}
+
+#username::placeholder {
+   color: #424242;
+   padding-left:10px;
+}
+
+#password {
+   color: #5a5a5a;
+   border-radius: 10px;
+   align-self: center;
+   justify-self: center;
+   width:35vh;
+   height:5vh;
+   background-color:#f3f3f3;
+   border: none;
+   grid-area:password;
+}
+
+
+#password::placeholder {
+   color: #424242;
+   padding-left:10px;
+}
+
+
+#continue {
+   cursor: pointer;
+   align-self: center;
+   padding: 0px;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   border-radius: 10px;
+   justify-self: center;
+   height:4vh;
+   width:25vh;
+   grid-area:continue;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#continueb {
+   font-size: 2.3vh;
+   border-top-left-radius: 8px;
+   border-bottom-left-radius: 8px;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 4vh;;
+   text-align: center;
+   color: white;
+   background: linear-gradient(to right,#1d84e4,#172e79);
+}
+
+#logout {
+   font-weight: 600;
+   color:rgb(0, 113, 206);
+   font-size: 2.3vh;
+   background-color: transparent;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 4vh;;
+   text-align: center;
+}
+
+
+
+#submitb {
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   justify-self: center;
+   grid-area: submitb;
+   font-size: 4vh;
+   line-height: 7vh;
+   text-align: center;
+   border-radius: 10px;;
+   width:20vh;
+   height:7vh;
+color: white;
+opacity: 0.8;
+transition: opacity 0.5s ease-in-out;
+background: linear-gradient(to right,#1d84e4,#172e79);
+}
+
+#submitb:hover {
+   opacity: 1;
+   cursor: pointer;
+}
+
+#infoimg {
+   grid-area: infoimg;
+width:70vh;
+height:60vh;
+background-size:contain;
+background-repeat: no-repeat;
+background-position: center;
+background-image: url(https://www.pngall.com/wp-content/uploads/15/Snorlax-PNG-Images-HD.png);
+}
+
+
+#pagetitle {
+   height:10vh;
+   width:30vh;
+   margin: 20px;
+   grid-area: pagetitle;
+   display: grid;
+   grid-template-columns: auto 1fr; /* Bild links, Text rechts */
+   align-items: center;
+   gap: 10px;
+ }
+ 
+ #pagetitle::before {
+   content: "";
+   border-radius: 10px;
+   background-image: url("images/product_image.png");
+   background-size: cover;
+   width: 5vh;
+   height: 5vh;
+ }
+ 
+ #pagetitle::after {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   content: "Snorlax Timer";
+   font-size: 2vh;
+ }
+
+#help {
+   justify-self: end;
+   margin: 20px;
+   height:10vh;
+   width:30vh;
+   grid-area: help;
+}
+
+#hinfo {
+   justify-self: end;
+   align-self: center;
+   margin: 20px;
+   color:#045585;
+   font-weight: 600;
+   font-size: 2vh;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 3vh;;
+   text-align: center;
+   width: 8vh;
+   height:3vh;
+   border: 2px solid #083672;
+   border-radius: 11px;
+
+}
+
+
+body.loaded #loader {
+   opacity: 0;
+   pointer-events: none;
+ }
+
+
+#loader {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: white;
+   display: none;
+   justify-content: center;
+   align-items: center;
+   z-index: 9999;
+   transition: opacity 0.5s ease;
+ }
+
+ /* Spinner */
+ .spinner {
+   border: 8px solid #f3f3f3;
+   border-top: 8px solid #0e5381;
+   border-radius: 50%;
+   width: 60px;
+   height: 60px;
+   animation: spin 1s linear infinite;
+ }
+
+ @keyframes spin {
+   0%   { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }
