@@ -213,7 +213,7 @@ background-image: url(https://www.pngall.com/wp-content/uploads/15/Snorlax-PNG-I
  #pagetitle::before {
    content: "";
    border-radius: 10px;
-   background-image: url("images/product_image.png");
+   background-image: url("product_image.png");
    background-size: cover;
    width: 5vh;
    height: 5vh;
