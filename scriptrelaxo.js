@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("js works");
-  alert("Welcome, this is relaxo. He is a bit lazy, so you have to take care of him! Dont let the bars go to zero, or he might die!")
+  alert("Welcome, this is Snorlax. He is a bit lazy, so you have to take care of him! Dont let the bars go to zero, or he might die!")
   startTimer();
 });
 
@@ -88,7 +88,7 @@ function startTimer() {
 
         // Überprüfe, ob eine der Bars auf 0 gefallen ist
       if (width1 <= 0 || width2 <= 0 || width3 <= 0) {
-          alert("Eine der Bars ist auf 0 gefallen! Die Seite wird geschlossen.");
+          alert("One bar has shrunked, Snorlax dies.");
           window.close(); // Schließt das aktuelle Browserfenster
           localStorage.clear()
       }
@@ -346,7 +346,7 @@ button1.addEventListener("click", function () {
     saveProgress();
 
   } else {
-    alert("Button 1: Keine Uses mehr! Neue in: " + 
+    alert("Button 1: No uses left! new ones in: " + 
           Math.round((buttonData.resetTime - now)/(60*60*1000)) + "h");
   }
 });
@@ -408,7 +408,7 @@ button2.addEventListener("click", function () {
     saveProgress();
 
   } else {
-    alert("Button 2: Keine Uses mehr! Neue in: " + 
+    alert("Button 2: No uses left! new ones in: " + 
           Math.round((buttonData.resetTime - now)/(60*60*1000)) + "h");
   }
 });
@@ -463,7 +463,7 @@ button3.addEventListener("click", function () {
     saveProgress();
 
   } else {
-    alert("Button 3: Keine Uses mehr! Neue in: " + 
+    alert("Button 3: No uses left! new ones in: " + 
           Math.round((buttonData.resetTime - now)/(60*60*1000)) + "h");
   }
 });
@@ -523,7 +523,7 @@ button4.addEventListener("click", function () {
     saveProgress();
 
   } else {
-    alert("Button 4: Keine Uses mehr! Neue in: " + 
+    alert("Button 4: No uses left! new ones in: " + 
           Math.round((buttonData.resetTime - now)/(60*60*1000)) + "h");
   }
 });
