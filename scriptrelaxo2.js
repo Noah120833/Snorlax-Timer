@@ -60,4 +60,4 @@ if (localStorage.getItem("loggedInUser")) {
  });
  
 
- localStorage.clear();
+
