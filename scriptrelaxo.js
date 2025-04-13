@@ -79,7 +79,7 @@ function startTimer() {
       currenttime++;
       saveProgress();
 
-      if (currenttime >= 120 && !hasshrunk) {
+      if (currenttime >= 120*60 && !hasshrunk) {
         shrinkBars();
         hasshrunk = true;
         Reset();
