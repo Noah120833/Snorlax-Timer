@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("js works");
-  alert("Welcome, this is Snorlax. He is a bit lazy, so you have to take care of him! Dont let the bars go to zero, or he might die!")
   startTimer();
 });
 
@@ -542,6 +541,12 @@ function loadUser() {
     window.location.href = "index.html.html";  
   }
 
+  const isFirstLogin = localStorage.getItem("firstLogin") === null;
+  if (isFirstLogin) {
+    alert("Welcome to the game! This is your first login. Take care of Snorlax!");
+    localStorage.setItem("firstLogin", "false"); // Mark as not the first login anymore
+  }
+
   const progressData = JSON.parse(localStorage.getItem(loggedInUser + "_progress"));
   if (progressData) {
     document.getElementById("lvl").textContent = progressData.level;
@@ -599,6 +604,9 @@ function updateButtonColor(button, usesLeft, maxUses, colors) {
 
 loadUser();
 
+
+
+
 // Fortschritt speichern, wenn der Benutzer eine Bar ändert
 function saveProgress() {
   const loggedInUser = localStorage.getItem("loggedInUser");
@@ -637,6 +645,5 @@ function saveProgress() {
   localStorage.setItem(loggedInUser + "_progress", JSON.stringify(progressData));
   console.log("saved up progress");
 }
-
 
 
