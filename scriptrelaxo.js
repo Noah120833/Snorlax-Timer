@@ -639,4 +639,4 @@ function saveProgress() {
 }
 
 
-localStorage.clear();
+
