@@ -1,7 +1,7 @@
 {
-  "name": "Keyboard Sounds",
+  "name": "Snorlax Timer",
   "short_name": "Keys",
-  "start_url": "./index.html",
+  "start_url": "./index.html.html",
   "display": "standalone",
   "background_color": "#1a1a1a",
   "theme_color": "#1a1a1a",
