@@ -34,4 +34,14 @@
    
 </body>
 </html>
-<script src="scriptrelaxo2.js"></script>
+<script src="scriptrelaxo2.js">
+   if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+        console.log('Service Worker registriert mit Scope: ', registration.scope);
+      }).catch((error) => {
+        console.log('Fehler bei der Registrierung des Service Workers: ', error);
+      });
+    });
+  }
+</script>
