@@ -18,6 +18,7 @@ self.addEventListener('install', (event) => {
         '/relaxo_sitting.webp',
         '/relaxo_sleeping.webp',
         '/relaxo_working.webp',
+        '/manifest.json',
         // Weitere Ressourcen, die du im Cache speichern möchtest
       ]);
     })
