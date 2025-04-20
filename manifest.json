@@ -1,20 +1,22 @@
 {
   "name": "Snorlax Timer",
   "short_name": "Keys",
-  "start_url": "./index.html.html",
+  "start_url": "/Snorlax-Timer/index.html.html",
+"scope": "/Snorlax-Timer/",
   "display": "standalone",
   "background_color": "#1a1a1a",
   "theme_color": "#1a1a1a",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+"icons": [
+  {
+    "src": "/Snorlax-Timer/icon-192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "/Snorlax-Timer/icon-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]
+
 }
